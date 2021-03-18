@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+
+  <!-- BINGO CHALLENGE!!!
+  Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+  Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+
+  EXTRA: 
+  - Take ALWAYS a new number (eg. avoid randoming the number 10 3 times)
+  - Create a USER BOARD with 24 randomized numbers that highlights as the main board does
+  - Let the user choose HOW MANY user boards he's willing to play with and create them. -->
+
+
+</head>
+<body> 
+
+  <style>
+   /* styleshere!!!!!!! */
+   body {
+     font-family: Arial, Helvetica, sans-serif;
+   }
+    .borderNumbersCell {
+      background-color: darkgrey;
+      border: solid 1px black;
+    }
+
+  
+  </style>
+
+  <div class="container" onclick="">
+    <h1>BINGO</h1>
+    <section id="controls">
+      <h2 class="">
+        <span id="countdown"">000</span>
+
+      </h2>
+      <button onclick="randomNumber()">Generate</button>
+              
+    </section>
+        <section id="board">
+        </section
+  </div>
+
+          <script>
+
+            window.onload = function startBoard() {
+                
+                let table = document.createElement("table"),
+                    tr,
+                    td,
+                    i;
+                
+                for (i = 0; i < 76; i++) {
+                    
+                    if (i % 15 == 0) {
+                        
+                        tr = table.appendChild(document.createElement("tr"));
+                    }
+                    
+                    td = tr.appendChild(document.createElement("td"));
+
+                    td.innerHTML = i + 1;
+                    
+                    td.className = "borderNumbersCell";
+                  }
+                    
+                    document.querySelector("#board").appendChild(table);
+
+                    // table.onclick = function(event){
+                    //   event.currentTarget.classList.add("selected")
+                    //   event.currentTarget.className += " selected"
+                    // }
+                };
+
+
+                
+                let randomNumber = function () {
+                let min = 1;
+                let max = 76;
+                const random = Math.floor(Math.random() * (max - min + 1)) + min;
+                console.log(random)
+                const cells= document.querySelectorAll('.borderNumbersCell')
+                cells[random].style.color='red'
+               
+                }
+
+                // // let count = function() {
+                //   document.getElementById("countdown").innerHTML = randomNumber()
+                // // }
+
+
+          
+
+
+            
+
+      
+                
+
+          </script>
+  
+</body>
+</html>
